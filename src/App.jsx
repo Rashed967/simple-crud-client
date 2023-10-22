@@ -13,20 +13,21 @@ function App() {
     const user = {name, email}
     
     // post users 
-    fetch('http://localhost:5000/teachers',{
-      method : "POST",
-      headers : {'Content-type' : 'application/json'},
-      body : JSON.stringify(user)
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log("data updated", data)
-      if(data.insertedId){
-        alert("data added successfully")
-        form.reset()
-      }
-    })
-    .catch(error => console.error(error))
+   fetch('http://localhost:5000/teachers', {
+    method : "POST", 
+    headers : {'Content-type' : 'application/json'},
+    body : JSON.stringify(user)
+   })
+   .then(res => res.json())
+   .then(data => {
+    console.log(data)
+    if(data.insertedId){
+      alert("teacher profile added")
+      form.reset()
+    }
+    
+   })
+   .catch(error => console.error(error))
 
   }
  
