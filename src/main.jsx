@@ -6,8 +6,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Teachers from './components/Teachers.jsx'
 import Update from './components/Update.jsx'
 
-
-const router = createBrowserRouter([
+// create routes 
+const route = createBrowserRouter([
   {
     path : "/",
     element : <App />
@@ -20,14 +20,12 @@ const router = createBrowserRouter([
   {
     path : "/update/:id",
     element : <Update />,
-    loader : ({params}) => fetch(`http://localhost:5000/teachers/${params.id}`)
+    loader : ({params}) => fetch(`http://localhost:5000/teachers/${params.id}`) 
   }
-
 ])
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <RouterProvider router={route} />
   </React.StrictMode>,
 )
